@@ -13,7 +13,7 @@ Example config:
 ```
 
 Needs python 3.6+, uses fstrings, if you want to use it on a lower version just replace the fstrings with formats.
-Keep catch rate low delay high for it to act normally.  
+Keep catch rate low delay high for it to act normally.
 Priority pokemon bypass catch rate.
 If a priority pokemon is caught it will be removed from priority list in the current session, manually remove it from config if you restart.
 Catch Rate is a percentage out of 100.  
