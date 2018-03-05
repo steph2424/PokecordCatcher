@@ -11,7 +11,7 @@ Example config:
 }
 ```
 
-Needs python 3.6+, uses fstrings, if you want to use it on a lower version just replace the fstrings with formats.
+Needs python 3.6+, uses fstrings, if you want to use it on a lower version just replace the fstrings with formats.  
 Keep catch rate low delay high for it to act normally.  
 Priority pokemon bypass catch rate.  
 Catch Rate is a percentage out of 100.  
