@@ -1,6 +1,7 @@
 {
   "token": "",
   "priority": [],
-  "catch_rate": 90,
-  "delay": 2
+  "catch_rate": 80,
+  "delay": 2,
+  "delay_on_priority": true
 }

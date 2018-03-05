@@ -24,9 +24,12 @@ class Poke(discord.Client):
                 name = self.p.search(emb.image.url.split('/')[-1:][0]).group()
                 proc = random.randint(1, 100)
                 if name in self.configs['priority'] or proc <= self.configs['catch_rate']:
+                    if name in self.configs['priority']:
+                        self.configs['priority'].pop(name)
                     pref = emb.description.split()[5]
                     print(f'Caught "{name}" in {message.guild.name} in #{message.channel.name}')
-                    await asyncio.sleep(self.configs['delay'])
+                    if self.configs['delay_on_priority']:
+                        await asyncio.sleep(self.configs['delay'])
                     await message.channel.send(f"{pref} {name}")
     
     async def on_ready(self):
