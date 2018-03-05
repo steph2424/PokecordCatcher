@@ -36,5 +36,6 @@ class Poke(discord.Client):
         print("Logged in.\n---PokecordCatcher----\n"
               f"Priority: {', '.join(self.configs['priority'])}\n"
               f"Catch Rate: {self.configs['catch_rate']}%\n"
-              f"Catch Delay: {self.configs['delay']} seconds")
+              f"Catch Delay: {self.configs['delay']} seconds\n"
+              f"Delay On Priority: {'On' if self.configs['delay_on_priority'] == True else 'Off'}")
 
