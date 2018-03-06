@@ -21,3 +21,5 @@ Delay is in seconds.
 delay_on_priority can be set to true or false, false means it won't wait and will instantly catch a pokemon if its in priority.  
 To find out how to get your token visit [Token Tutorial](https://github.com/TheRacingLion/Discord-SelfBot/wiki/Discord-Token-Tutorial).  
 Preferably run this on an alt and trade, selfbots violate discord TOS and you can get banned.  
+-  
+Catch me at Demo#9465 On Discord.
