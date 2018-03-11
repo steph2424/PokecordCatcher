@@ -25,7 +25,7 @@ Delay is in seconds.
 delay_on_priority can be set to true or false, false means it won't wait and will instantly catch a pokemon if its in priority.  
 To find out how to get your token visit [Token Tutorial](https://github.com/TheRacingLion/Discord-SelfBot/wiki/Discord-Token-Tutorial).  
 Bot will catch pokemon only in whitelist_channels if there are channels in that list, or it will ignore channels in blacklist_channels. Keep both empty for normal usage.  
-To find the ID of your channel, go to that channel and tag your channel and add a backlash behind it, ex: "\#general", the number is the id you can use in blacklist_channels or whitelist_channels.  
+To find the ID of your channel, go to that channel and tag your channel and add a backlash behind it, ex: "\\#general", the number is the id you can use in blacklist_channels or whitelist_channels.  
 Only one of whitelist_channels or blacklist_channels can be kept active, empty the list of the other one if you wanna use one.  
 Preferably run this on an alt and trade, selfbots violate discord TOS and you can get banned.  
 
