@@ -18,6 +18,10 @@ class Poke(discord.Client):
         super().run(self.configs['token'], bot=False)
 
     async def on_message(self, message):
+        if self.configs['whitelist_channels'] and message.channel.id not in self.configs['whitelist_channels']:
+            return
+        if self.configs['blacklist_channels'] and message.channel.id in self.configs['blacklist_channels']:
+            return
         if message.author.id == 365975655608745985 and message.embeds:
             emb = message.embeds[0]
             if emb.title.startswith('A wild'):
@@ -38,4 +42,8 @@ class Poke(discord.Client):
               f"Catch Rate: {self.configs['catch_rate']}%\n"
               f"Catch Delay: {self.configs['delay']} seconds\n"
               f"Delay On Priority: {'On' if self.configs['delay_on_priority'] == True else 'Off'}")
+        if self.configs['whitelist_channels'] and self.configs['blacklist_channels']:
+            print('------\nCan only have either blacklist__channels active or whitelist_channels active\n'
+                  'Please clear one of the two lists to use the bot\n-----\nLogging out.')
+            await self.logout()
 

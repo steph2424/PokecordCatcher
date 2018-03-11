@@ -3,5 +3,7 @@
   "priority": [],
   "catch_rate": 80,
   "delay": 2,
-  "delay_on_priority": true
+  "delay_on_priority": true,
+  "whitelist_channels": [],
+  "blacklist_channels": []
 }
