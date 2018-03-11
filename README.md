@@ -14,6 +14,8 @@ Example config:
 }
 ```
 
+If you need trading support and overall more automation / control use [Pokeball selfbot](https://github.com/Hyperclaw79/PokeBall-SelfBot).  
+
 Needs python 3.6+, uses fstrings, if you want to use it on a lower version just replace the fstrings with formats.  
 Keep catch rate low delay high for it to act normally.  
 Priority pokemon bypass catch rate.  
@@ -26,5 +28,5 @@ Bot will catch pokemon only in whitelist_channels if there are channels in that 
 To find the ID of your channel, go to that channel and tag your channel and add a backlash behind it, ex: "\#general", the number is the id you can use in blacklist_channels or whitelist_channels.  
 Only one of whitelist_channels or blacklist_channels can be kept active, empty the list of the other one if you wanna use one.  
 Preferably run this on an alt and trade, selfbots violate discord TOS and you can get banned.  
--  
+
 Catch me at Demo#9465 On Discord.
