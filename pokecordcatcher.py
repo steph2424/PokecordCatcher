@@ -32,9 +32,11 @@ class Poke(discord.Client):
                         self.configs['priority'].pop(name)
                     pref = emb.description.split()[5]
                     print(f'Caught "{name}" in {message.guild.name} in #{message.channel.name}')
-                    if self.configs['delay_on_priority']:
+                    if (name in self.configs['priority'] and self.configs['delay_on_priority']) or proc <= self.configs['catch_rate']:
                         await asyncio.sleep(self.configs['delay'])
                     await message.channel.send(f"{pref} {name}")
+                else:
+                    print(f"Skipped a {name}")
     
     async def on_ready(self):
         print("Logged in.\n---PokecordCatcher----\n"
