@@ -5,8 +5,8 @@ Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 
 ## Getting Started
 
-If you want to use a direct release, you can download the latest release from the releases tab on the top and you can move to the "Installing" part of the guide.  
-For other systems, you can clone or download the project from the green button up top and extract the archive.
+One of the easier ways to install is to use a direct release, you can download the latest release from the releases tab on the top and you can move to the "Installing" part of the guide.  
+For others, you can clone or download the project from the green button up top and extract the archive.
 
 ### Prerequisites
 
@@ -54,3 +54,7 @@ Either run run.bat or `py -3 launcher.py` or use `launcher.exe` if you're using 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/xKynn/PokecordCatcher/blob/master/LICENSE) file for details
+
+## Bug reports and problems
+
+Please open an issue on this repo, you can do this from the issues tab on the top and I'll take a look at it when I can.
