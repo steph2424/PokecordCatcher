@@ -30,7 +30,7 @@ Other options in config are:
  - whitelist_channels: A list of channel IDs, so the bot will only catch pokemon on these channels.
  - blacklist_channels: A list of channel IDs, so the bot will catch in all channels except these.
  - NOTE: Only one of whitelist or blacklist can have channel IDs at a time, the other needs to be empty
- - TIP: There are two ways to find a channel's ID, either go to the channel, tag the channel with a #, then add a \\ to it, ex: `\\#general`, it will present a number in <>, that number is a channel ID you can use.
+ - TIP: There are two ways to find a channel's ID, either go to the channel, tag the channel with a #, then add a \\ to it, ex: `\#general`, it will present a number in <>, that number is a channel ID you can use.
       - The second way is to go to discord settings > Appearance > Scroll down and enable Developer Mode, then you can right click on a channel in the left side channel bar and click Copy ID.
 
 Example config:
