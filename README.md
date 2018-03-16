@@ -1,5 +1,36 @@
 # PokecordCatcher
-Selfbot to catch pokemon when they spawn for the Pokecord discord bot  
+
+Selfbot to catch pokemon when they spawn for the Pokecord discord bot
+
+## Getting Started
+
+If you want to use a direct release, you can download the latest release from the releases tab on the top and you can move to the "Installing" part of the guide.  
+For other systems, you can clone or download the project from the green button up top and extract the archive.
+
+### Prerequisites
+
+Python 3.6 or newer; you can easily install python by visiting: https://www.python.org/downloads/ . Make sure to tick add python to PATH.
+
+### Installing
+
+You will require the token of the account you want to run this bot on, it's better if it's an alt as selfbots violate ToS and you can get banned.
+To grab your token visit [Token Tutorial](https://github.com/TheRacingLion/Discord-SelfBot/wiki/Discord-Token-Tutorial). 
+Skip the next part if you're using a packaged release
+After you've setup python and grabbed your token, run setup.bat.
+
+### Config
+
+Open config.json up with any text editor, now put your token in the "".  
+Other options in config are:
+    * priority: In this list you can add pokemon that bypass the catch rate, pokemon that you absolutely want to catch.
+    * catch_rate: This is a percent out of 100.
+    * delay: A delay in seconds to try and catch a pokemon after PokeCord spawns one.
+    * delay_on_priority: This can be set to `true` or `false`. True means delay will still apply on priority pokemon, false means an instant catch.
+    * whitelist_channels: A list of channel IDs, so the bot will only catch pokemon on these channels.
+    * blacklist_channels: A list of channel IDs, so the bot will catch in all channels except these.
+    * NOTE: Only one of whitelist or blacklist can have channel IDs at a time, the other needs to be empty
+    * TIP: There are two ways to find a channel's ID, either go to the channel, tag the channel with a #, then add a \\ to it, ex: `\\#general`, it will present a number in <>, that number is a channel ID you can use.
+       * The second way is to go to discord settings > Appearance > Scroll down and enable Developer Mode, then you can right click on a channel in the left side channel bar and click Copy ID.
 
 Example config:
 ```
@@ -14,19 +45,17 @@ Example config:
 }
 ```
 
-If you need trading support and overall more automation / control use [Pokeball selfbot](https://github.com/Hyperclaw79/PokeBall-SelfBot).  
+You can use this as a reference to modify your config.json.
 
-Needs python 3.6+, uses fstrings, if you want to use it on a lower version just replace the fstrings with formats.  
-Keep catch rate low delay high for it to act normally.  
-Priority pokemon bypass catch rate.  
-If a priority pokemon is caught it will be removed from priority list in the current session, manually remove it from config if you restart.  
-Catch Rate is a percentage out of 100.  
-Delay is in seconds.  
-delay_on_priority can be set to true or false, false means it won't wait and will instantly catch a pokemon if its in priority.  
-To find out how to get your token visit [Token Tutorial](https://github.com/TheRacingLion/Discord-SelfBot/wiki/Discord-Token-Tutorial).  
-Bot will catch pokemon only in whitelist_channels if there are channels in that list, or it will ignore channels in blacklist_channels. Keep both empty for normal usage.  
-To find the ID of your channel, go to that channel and tag your channel and add a backlash behind it, ex: "\\#general", the number is the id you can use in blacklist_channels or whitelist_channels.  
-Only one of whitelist_channels or blacklist_channels can be kept active, empty the list of the other one if you wanna use one.  
-Preferably run this on an alt and trade, selfbots violate discord TOS and you can get banned.  
+### Running the bot
+Either run run.bat or `py -3 launcher.py` or use `launcher.exe` if you're using a release.
 
-Catch me at Demo#9465 On Discord.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/xKynn/PokecordCatcher/blob/master/LICENSE) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
