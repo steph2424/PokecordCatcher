@@ -5,7 +5,7 @@ Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 
 ## Getting Started
 
-One of the easier ways to install is to use a direct release, you can download the latest release from the releases tab on the top and you can move to the "Installing" part of the guide.  
+One of the easier ways to install is to use a direct release, you can download the latest release from [here](https://github.com/xKynn/PokecordCatcher/releases/latest) and you can move to the "Installing" part of the guide.  
 For others, you can clone or download the project from the green button up top and extract the archive.
 
 ### Prerequisites
