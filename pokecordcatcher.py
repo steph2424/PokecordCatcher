@@ -24,18 +24,27 @@ class Poke(discord.Client):
             return
         if message.author.id == 365975655608745985 and message.embeds:
             emb = message.embeds[0]
-            if emb.title.startswith('A wild'):
-                name = self.p.search(emb.image.url.split('/')[-1:][0]).group()
+            try:
+                title = emb.title
+            except AttributeError:
+                return
+            if title.startswith('A wild'):
+                name = self.p.search(emb.image.url.split('/')[-1]).group()
                 proc = random.randint(1, 100)
-                if name in self.configs['priority'] or proc <= self.configs['catch_rate']:
+                if self.configs['priority_only'] and name not in self.configs['priority']:
+                    return
+                if name in self.configs['priority'] or (proc <= self.configs['catch_rate'] and
+                                                        name not in self.configs['avoid_list']):
                     if name in self.configs['priority']:
                         self.configs['priority'].pop(name)
                     pref = emb.description.split()[5]
-                    print(f'Caught "{name}" in {message.guild.name} in #{message.channel.name}')
-                    if (name in self.configs['priority'] and self.configs['delay_on_priority']) or proc <= self.configs['catch_rate']:
+                    print('Tried to catch {}{}'.format(name, f' in {message.guild.name} in #{message.channel.name}.' if
+                          self.configs["verbose"] else "."))
+                    if (name in self.configs['priority'] and
+                            self.configs['delay_on_priority']) or proc <= self.configs['catch_rate']:
                         await asyncio.sleep(self.configs['delay'])
                     await message.channel.send(f"{pref} {name}")
-                else:
+                elif self.configs['verbose']:
                     print(f"Skipped a {name}")
     
     async def on_ready(self):

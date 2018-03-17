@@ -27,6 +27,8 @@ Other options in config are:
  - catch_rate: This is a percent out of 100.
  - delay: A delay in seconds to try and catch a pokemon after PokeCord spawns one.
  - delay_on_priority: This can be set to `true` or `false`. True means delay will still apply on priority pokemon, false means an instant catch.
+ - priority_only: Setting this to `true` means only priority pokemon will be caught.
+ - avoid_list: A list just like priority, add names of pokemon you want the bot to ignore.
  - whitelist_channels: A list of channel IDs, so the bot will only catch pokemon on these channels.
  - blacklist_channels: A list of channel IDs, so the bot will catch in all channels except these.
  - NOTE: Only one of whitelist or blacklist can have channel IDs at a time, the other needs to be empty
@@ -41,6 +43,8 @@ Example config:
   "catch_rate": 90,
   "delay": 2,
   "delay_on_priority": true,
+  "priority_only": false,
+  "avoid_list": ["Rattata", "Poochyena"],
   "whitelist_channels": [369081842038603776, 369081842038603779],
   "blacklist_channels": []
 }
