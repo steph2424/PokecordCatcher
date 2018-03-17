@@ -1,9 +1,12 @@
 {
   "token": "",
   "priority": [],
-  "catch_rate": 80,
+  "catch_rate": 100,
   "delay": 2,
   "delay_on_priority": true,
+  "priority_only": false,
+  "avoid_list": [],
   "whitelist_channels": [],
-  "blacklist_channels": []
+  "blacklist_channels": [],
+  "verbose": true
 }
