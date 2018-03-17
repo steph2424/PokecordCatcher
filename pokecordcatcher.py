@@ -38,12 +38,21 @@ class Poke(discord.Client):
                     if name in self.configs['priority']:
                         self.configs['priority'].pop(name)
                     pref = emb.description.split()[5]
-                    print('Tried to catch {}{}'.format(name, f' in {message.guild.name} in #{message.channel.name}.' if
-                          self.configs["verbose"] else "."))
                     if (name in self.configs['priority'] and
                             self.configs['delay_on_priority']) or proc <= self.configs['catch_rate']:
                         await asyncio.sleep(self.configs['delay'])
+
+                    def ping_check(m):
+                        return self.user.mention in m.content and m.author.id == 365975655608745985
                     await message.channel.send(f"{pref} {name}")
+                    try:
+                        await self.wait_for('message', check=ping_check, timeout=5)
+                    except asyncio.TimeoutError:
+                        return print('Failed to catch {}{}'.format(name, f' in {message.guild.name}'
+                                                                         f' in #{message.channel.name}.'
+                                                                         if self.configs["verbose"] else "."))
+                    print('Caught {}{}'.format(name, f' in {message.guild.name} in #{message.channel.name}.' if
+                          self.configs["verbose"] else "."))
                 elif self.configs['verbose']:
                     print(f"Skipped a {name}")
     
