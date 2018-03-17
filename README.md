@@ -31,6 +31,7 @@ Other options in config are:
  - avoid_list: A list just like priority, add names of pokemon you want the bot to ignore.
  - whitelist_channels: A list of channel IDs, so the bot will only catch pokemon on these channels.
  - blacklist_channels: A list of channel IDs, so the bot will catch in all channels except these.
+ - verbose: Setting this to true will add a bit more info to the console when a pokemon spawns, i.e if pokemon was skipped and where the bot tried to catch a pokemon (server and channel name).
  - NOTE: Only one of whitelist or blacklist can have channel IDs at a time, the other needs to be empty
  - TIP: There are two ways to find a channel's ID, either go to the channel, tag the channel with a #, then add a \\ to it, ex: `\#general`, it will present a number in <>, that number is a channel ID you can use.
       - The second way is to go to discord settings > Appearance > Scroll down and enable Developer Mode, then you can right click on a channel in the left side channel bar and click Copy ID.
