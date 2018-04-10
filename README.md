@@ -25,7 +25,7 @@ Open config.json up with any text editor, now put your token in the "".
 Other options in config are:
  - priority: In this list you can add pokemon that bypass the catch rate, pokemon that you absolutely want to catch.
  - catch_rate: This is a percent out of 100.
- - delay: A delay in seconds to try and catch a pokemon after PokeCord spawns one. (since the removal of pokemon names from URL and our switch to image md5 hash checks, there's an already modest delay of about 2 seconds that the bot requires)
+ - delay: A delay in seconds to try and catch a pokemon after PokeCord spawns one.
  - delay_on_priority: This can be set to `true` or `false`. True means delay will still apply on priority pokemon, false means an instant catch.
  - priority_only: Setting this to `true` means only priority pokemon will be caught.
  - avoid_list: A list just like priority, add names of pokemon you want the bot to ignore.
