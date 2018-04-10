@@ -1,5 +1,6 @@
 # PokecordCatcher
 
+### Updated! Works as of 10/04/2018, Name removal from URL workaround.
 Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 
 ## Getting Started
