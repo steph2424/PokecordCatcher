@@ -3,6 +3,8 @@ import discord
 import json
 import re
 import random
+import requests
+import hashlib
 
 
 class Poke(discord.Client):
@@ -12,7 +14,13 @@ class Poke(discord.Client):
         with open(self.config_path) as f:
             self.configs = json.load(f)
 
+        with open('poke.json') as f:
+            self.poke = json.load(f)
         super().__init__()
+
+    async def match(self, url):
+        m = hashlib.md5(requests.get(url, stream=True).raw.read()).hexdigest()
+        return self.poke[m]
 
     def run(self):
         super().run(self.configs['token'], bot=False)
@@ -29,12 +37,12 @@ class Poke(discord.Client):
             except AttributeError:
                 return
             if title.startswith('A wild'):
-                name = self.p.search(emb.image.url.split('/')[-1]).group()
+                name = await self.match(emb.image.url)
                 proc = random.randint(1, 100)
                 if self.configs['priority_only'] and name not in self.configs['priority']:
                     return
                 if name in self.configs['priority'] or (proc <= self.configs['catch_rate'] and
-                                                        name not in self.configs['avoid_list']):
+                                                                name not in self.configs['avoid_list']):
                     if name in self.configs['priority']:
                         self.configs['priority'].pop(name)
                     pref = emb.description.split()[5]
@@ -44,26 +52,27 @@ class Poke(discord.Client):
 
                     def ping_check(m):
                         return self.user.mention in m.content and m.author.id == 365975655608745985
+
                     await message.channel.send(f"{pref} {name}")
                     try:
                         await self.wait_for('message', check=ping_check, timeout=5)
                     except asyncio.TimeoutError:
                         return print('Failed to catch {}{}'.format(name, f' in {message.guild.name}'
                                                                          f' in #{message.channel.name}.'
-                                                                         if self.configs["verbose"] else "."))
+                        if self.configs["verbose"] else "."))
                     print('Caught {}{}'.format(name, f' in {message.guild.name} in #{message.channel.name}.' if
-                          self.configs["verbose"] else "."))
+                    self.configs["verbose"] else "."))
                 elif self.configs['verbose']:
                     print(f"Skipped a {name}")
-    
+
     async def on_ready(self):
         print("Logged in.\n---PokecordCatcher----\n"
               f"Priority: {', '.join(self.configs['priority'])}\n"
               f"Catch Rate: {self.configs['catch_rate']}%\n"
               f"Catch Delay: {self.configs['delay']} seconds\n"
-              f"Delay On Priority: {'On' if self.configs['delay_on_priority'] == True else 'Off'}")
+              f"Delay On Priority: {'On' if self.configs['delay_on_priority'] == True else 'Off'}"
+              f"")
         if self.configs['whitelist_channels'] and self.configs['blacklist_channels']:
             print('------\nCan only have either blacklist__channels active or whitelist_channels active\n'
                   'Please clear one of the two lists to use the bot\n-----\nLogging out.')
             await self.logout()
-
