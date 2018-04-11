@@ -1,14 +1,12 @@
 import asyncio
 import discord
 import json
-import re
 import random
 
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
         self.config_path = config_path
-        self.p = re.compile('([A-Z])\w+')
         with open(self.config_path) as f:
             self.configs = json.load(f)
 
@@ -31,7 +29,7 @@ class Poke(discord.Client):
             except AttributeError:
                 return
             if title.startswith('A wild'):
-                name = self.pokeref[self.p.search(emb.image.url.split('/')[-1]).group()]
+                name = self.pokeref[emb.image.url.split('/')[-1].split('.')[0]]
                 proc = random.randint(1, 100)
                 if self.configs['priority_only'] and name not in self.configs['priority']:
                     return
