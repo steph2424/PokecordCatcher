@@ -1,12 +1,16 @@
 import asyncio
+import aiohttp
 import discord
 import json
 import random
 
+from distutils.version import LooseVersion
+__version__ = '0.2.4'
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
         self.config_path = config_path
+        self.update_check = False
         with open(self.config_path) as f:
             self.configs = json.load(f)
 
@@ -16,7 +20,16 @@ class Poke(discord.Client):
 
     def run(self):
         super().run(self.configs['token'], bot=False)
-
+    
+    @staticmethod
+    def bordered(text):
+        lines = text.splitlines()
+        width = max(len(s) for s in lines)
+        res = ['┌' + '─' * width + '┐']
+        for s in lines:
+            res.append('│' + (s + ' ' * width)[:width] + '│')
+        res.append('└' + '─' * width + '┘')
+        return '\n'.join(res)
     async def on_message(self, message):
         if self.configs['whitelist_channels'] and message.channel.id not in self.configs['whitelist_channels']:
             return
@@ -55,6 +68,15 @@ class Poke(discord.Client):
                     print(f"Skipped a {name}")
     
     async def on_ready(self):
+        if not self.update_check:
+            async with aiohttp.ClientSession(loop=self.loop) as session:
+                async with session.get('http://api.github.com/repos/xKynn/PokecordCatcher/releases') as resp:
+                    ver = await resp.json()
+            ver_tag = ver[0]['tag_name']
+            if LooseVersion(ver_tag) > LooseVersion(__version__):
+                print(self.bordered(f'A new version is available! Please update ASAP.\n{ver[0]["name"]}\n{ver[0]["body"]}\n'
+                                     'Visit http://www.github.com/xKynn/PokecordCatcher/releases/latest'))
+            self.update_check = True
         print("Logged in.\n---PokecordCatcher----\n"
               f"Priority: {', '.join(self.configs['priority'])}\n"
               f"Catch Rate: {self.configs['catch_rate']}%\n"
