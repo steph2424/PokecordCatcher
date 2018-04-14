@@ -37,11 +37,9 @@ class Poke(discord.Client):
                                                         name not in self.configs['avoid_list']):
                     if name in self.configs['priority']:
                         self.configs['priority'].pop(name)
+                        if self.configs['delay_on_priority'] or proc <= self.configs['catch_rate']:
+                            await asyncio.sleep(self.configs['delay'])
                     pref = emb.description.split()[5]
-                    if (name in self.configs['priority'] and
-                            self.configs['delay_on_priority']) or proc <= self.configs['catch_rate']:
-                        await asyncio.sleep(self.configs['delay'])
-
                     def ping_check(m):
                         return self.user.mention in m.content and m.author.id == 365975655608745985
                     await message.channel.send(f"{pref} {name}")
