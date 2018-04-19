@@ -5,7 +5,7 @@ import json
 import random
 
 from distutils.version import LooseVersion
-__version__ = '0.2.4'
+__version__ = '0.2.5'
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
