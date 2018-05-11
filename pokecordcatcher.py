@@ -6,13 +6,14 @@ import random
 import requests
 import hashlib
 
-__version__ = '0.2.3'
+from distutils.version import LooseVersion
+
+__version__ = '0.2.6'
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
         self.config_path = config_path
         self.update_check = False
-        self.ses = aiohttp.ClientSession()
         with open(self.config_path) as f:
             self.configs = json.load(f)
 
@@ -79,6 +80,7 @@ class Poke(discord.Client):
                     print(f"Skipped a {name}")
     
     async def on_ready(self):
+        self.ses = aiohttp.ClientSession()
         if not self.update_check:
             async with aiohttp.ClientSession(loop=self.loop) as session:
                 async with session.get('http://api.github.com/repos/xKynn/PokecordCatcher/releases') as resp:
