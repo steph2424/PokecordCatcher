@@ -1,6 +1,6 @@
-
 # PokecordCatcher
 
+### Update! Not Working as of 11/05/2018, Images are now all sent as a constant text name. I do have a workaround which I'll try to put up as soon as possible.
 Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 
 ## Getting Started
@@ -47,7 +47,8 @@ Example config:
   "priority_only": false,
   "avoid_list": ["Rattata", "Poochyena"],
   "whitelist_channels": [369081842038603776, 369081842038603779],
-  "blacklist_channels": []
+  "blacklist_channels": [],
+  "verbose": false
 }
 ```
 
