@@ -3,7 +3,6 @@ import aiohttp
 import discord
 import json
 import random
-import requests
 import hashlib
 
 from distutils.version import LooseVersion
