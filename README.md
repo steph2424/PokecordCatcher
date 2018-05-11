@@ -1,6 +1,6 @@
 # PokecordCatcher
 
-### Update! Not Working as of 11/05/2018, Images are now all sent as a constant text name. I do have a workaround which I'll try to put up as soon as possible.
+### Update! Need testers as of 11/05/2018, Images are now all sent as a constant text name. Workaround is in place, not sure if all image hashes are correct so it will need testing, please report, thanks!
 Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 
 ## Getting Started
