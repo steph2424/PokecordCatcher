@@ -6,6 +6,7 @@ import random
 import requests
 import hashlib
 
+__version__ = '0.2.3'
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
