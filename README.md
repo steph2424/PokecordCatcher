@@ -6,18 +6,11 @@ Selfbot to catch pokemon when they spawn for the Pokecord discord bot
 ## Getting Started
 
 One of the easier ways to install is to use a direct release, you can download the latest release from [here](https://github.com/xKynn/PokecordCatcher/releases/latest) and you can move to the "Installing" part of the guide.  
-For others, you can clone or download the project from the green button up top and extract the archive.
-
-### Prerequisites
-
-Python 3.6 or newer; you can easily install python by visiting: https://www.python.org/downloads/ . Make sure to tick add python to PATH.
 
 ### Installing
-
+Extract the archive.  
 You will require the token of the account you want to run this bot on, it's better if it's an alt as selfbots violate ToS and you can get banned.  
 To grab your token visit [Token Tutorial](https://github.com/TheRacingLion/Discord-SelfBot/wiki/Discord-Token-Tutorial).  
-Skip the next part if you're using a packaged release.  
-After you've setup python and grabbed your token, run setup.bat.
 
 ### Config
 
@@ -55,7 +48,7 @@ Example config:
 You can use this as a reference to modify your config.json.
 
 ### Running the bot
-Either run run.bat or `py -3 launcher.py` or use `launcher.exe` if you're using a release.
+Run `launcher.exe`.
 
 ## License
 
