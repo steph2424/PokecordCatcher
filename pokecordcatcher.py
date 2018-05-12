@@ -7,7 +7,7 @@ import hashlib
 
 from distutils.version import LooseVersion
 
-__version__ = '0.2.6'
+__version__ = '1.0.0'
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
@@ -51,7 +51,7 @@ class Poke(discord.Client):
             except AttributeError:
                 return
             if title.startswith('A wild'):
-                name = await self.match(emb.image.url)
+                name = await self.match(emb.image.url.split('?')[0])
                 proc = random.randint(1, 100)
                 if self.configs['priority_only'] and name not in self.configs['priority']:
                     return
