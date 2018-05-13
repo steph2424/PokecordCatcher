@@ -52,10 +52,9 @@ Run `launcher.exe`.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/xKynn/PokecordCatcher/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/xKynn/PokecordCatcher/blob/master/LICENSE) file for details.  
+
 
 ## Bug reports and problems
 
 Please open an issue on this repo, you can do this from the issues tab on the top and I'll take a look at it when I can.
-###Incorrect pokemon hash
-Create an issue with the keyerror and the link of the pokemon image that caused it, right click and copy link from discord for this.
