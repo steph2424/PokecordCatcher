@@ -7,7 +7,8 @@ import hashlib
 
 from distutils.version import LooseVersion
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
+
 
 class Poke(discord.Client):
     def __init__(self, config_path: str, *args, **kwargs):
@@ -15,6 +16,13 @@ class Poke(discord.Client):
         self.update_check = False
         with open(self.config_path) as f:
             self.configs = json.load(f)
+
+        if self.configs['priority']:
+            for num, name in enumerate(self.configs['priority']):
+                self.configs['priority'][num] = name.casefold()
+        if self.configs['avoid_list']:
+            for num, name in enumerate(self.configs['avoid_list']):
+                self.configs['avoid_list'][num] = name.casefold()
 
         with open('poke.json') as f:
             self.poke = json.load(f)
