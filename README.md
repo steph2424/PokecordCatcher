@@ -1,7 +1,8 @@
 # PokecordCatcher
 
 ### Update! Working as of 12/05/2018, Images are md5 hashed and referenced to our json.
-Selfbot to catch pokemon when they spawn for the Pokecord discord bot
+Selfbot to catch pokemon when they spawn for the Pokecord discord bot.  
+For a more selfbot like bot with more developed utilities and automation visit [Pokeball-Selfbot][https://github.com/Hyperclaw79/PokeBall-SelfBot], it is based on PokecordCatcher and will always be up to date with core changes here!
 
 ## Getting Started
 
