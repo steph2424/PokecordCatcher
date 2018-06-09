@@ -1,4 +1,5 @@
+yarl<1.2
+aiohttp==2.2.5
 https://github.com/Rapptz/discord.py/archive/rewrite.zip#egg=discord.py
-aiohttp
 hashlib
 yarl<1.2
