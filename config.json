@@ -8,5 +8,6 @@
   "avoid_list": [],
   "whitelist_channels": [],
   "blacklist_channels": [],
-  "verbose": true
+  "verbose": true,
+  "check_for_updates": true
 }

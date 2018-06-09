@@ -7,7 +7,7 @@ import hashlib
 
 from distutils.version import LooseVersion
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 
 class Poke(discord.Client):
@@ -108,7 +108,7 @@ class Poke(discord.Client):
         # aiohttp session for downloading images
         self.ses = aiohttp.ClientSession()
         # github API latest release check, LooseVersion makes version comparison with multiple '.' easier ex. 2.2.3
-        if not self.update_check:
+        if not self.update_check and self.configs['check_for_updates']:
             async with aiohttp.ClientSession(loop=self.loop) as session:
                 async with session.get('http://api.github.com/repos/xKynn/PokecordCatcher/releases') as resp:
                     ver = await resp.json()
